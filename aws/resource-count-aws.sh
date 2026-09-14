@@ -371,19 +371,9 @@ get_ecr_image_count_in_region() {
 
 get_region_list() {
   echo "###################################################################################"
-  echo "Querying AWS Regions"
+  echo "Using AWS Region: ap-southeast-3 (Jakarta)"
 
-  REGIONS=$(aws_ec2_describe_regions | jq -r '.Regions[] | .RegionName' 2>/dev/null | sort)
-
-  XIFS=$IFS
-  # shellcheck disable=SC2206
-  IFS=$'\n' REGION_LIST=($REGIONS)
-  IFS=$XIFS
-
-  if [ ${#REGION_LIST[@]} -eq 0 ]; then
-    echo "  Warning: Using default region list"
-    REGION_LIST=(ap-south-2 ap-south-1 eu-south-1 eu-south-2 me-central-1 il-central-1 ca-central-1 ap-east-2 mx-central-1 eu-central-1 eu-central-2 us-west-1 us-west-2 af-south-1 eu-north-1 eu-west-3  eu-west-2 eu-west-1 ap-northeast-3 ap-northeast-2 me-south-1 ap-northeast-1 sa-east-1 ap-east-1 ca-west-1 ap-southeast-1 ap-southeast-2 ap-southeast-3 ap-southeast-4 us-east-1 ap-southeast-5 us-east-2 ap-southeast-7)
-  fi
+  REGION_LIST=(ap-southeast-3)
 
   echo "  Total number of regions: ${#REGION_LIST[@]}"
   echo "###################################################################################"
