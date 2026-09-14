@@ -75,7 +75,7 @@ AWS Cloud Shell already has the AWS CLI, your credentials, `git`, and `jq` prepa
    ```
 5. Run the script:
    ```bash
-   ./resource-count-aws.sh
+   ./resource-count-aws.sh | tee output.txt
    ```
 
 ### Option B — Entire AWS Organization (all member accounts)
@@ -97,7 +97,7 @@ Steps:
    ```
 3. Run the script in organization mode:
    ```bash
-   ./resource-count-aws.sh org
+   ./resource-count-aws.sh org | tee output.txt
    ```
 4. The script prints the number of member accounts found, processes each one, and reports per-account and grand-total resource counts.
 
